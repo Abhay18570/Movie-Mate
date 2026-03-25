@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  padding: clamp(24px, 5vw, 40px) 20px;
   position: relative;
   overflow: hidden;
 }
@@ -76,7 +76,7 @@ body.theme-light .auth-page::before {
 
 .auth-subtitle {
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: clamp(0.88rem, 1.4vw, 0.95rem);
 }
 
 /* ─── Form Card ───────────────────────────────────────────────────────────── */
@@ -84,7 +84,7 @@ body.theme-light .auth-page::before {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 36px;
+  padding: clamp(20px, 4vw, 36px);
   box-shadow: var(--shadow);
 }
 
@@ -99,6 +99,10 @@ body.theme-light .auth-page::before {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
+}
+
+.auth-form .form-group input {
+  min-height: 46px;
 }
 
 .auth-submit {
@@ -139,6 +143,39 @@ body.theme-light .auth-card {
 }
 
 @media (max-width: 480px) {
-  .auth-card { padding: 24px 20px; }
-  .form-row { grid-template-columns: 1fr; }
+  .auth-page {
+    padding-inline: 14px;
+  }
+
+  .auth-header {
+    margin-bottom: 24px;
+  }
+
+  .auth-back {
+    font-size: 0.8rem;
+    margin-bottom: 18px;
+  }
+
+  .auth-logo {
+    font-size: 0.92rem;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .auth-card {
+    padding: 22px 16px;
+  }
+
+  .auth-form {
+    gap: 14px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .auth-submit {
+    margin-top: 4px;
+  }
 }
